@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CategoriesController extends Controller
 {
@@ -32,7 +33,7 @@ class CategoriesController extends Controller
         return redirect()->route('categories')->with('success', 'Data Berhasil Ditambahkan');
     }
 
-    public function updateData(Request $request) 
+    public function updateData(Request $request)
     {
         $id = $request->id;
         Categories::find($id)->update([
@@ -45,5 +46,12 @@ class CategoriesController extends Controller
     {
         Categories::find($id)->delete();
         return redirect()->route('categories')->with('success', 'Data Berhasil Dihapus');
+    }
+
+    public function cetak()
+    {
+        $categories = Categories::all();
+        $pdf = Pdf::loadview('categories.cetak', compact('categories'));
+        return $pdf->download('laporan-list-categories.pdf');
     }
 }

@@ -64,6 +64,9 @@
             <button type="button" class="btn btn-tambah">
                 <a href="{{ url('categories/entry') }}">Tambah Data</a>
             </button>
+            <button type="button" class="btn btn-tambah">
+                <a href="{{ url('categories/cetak') }}">Export Data</a>
+            </button>
             <table class="table-data">
                 <thead>
                     <tr>

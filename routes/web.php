@@ -25,4 +25,5 @@ Route::get('/categories/update/entry/{id}',[CategoriesController::class,'updateP
 Route::post('/categories/create',[CategoriesController::class,'create'])->name('categories.create');
 Route::post('/categories/update',[CategoriesController::class,'updateData'])->name('categories.update');
 Route::get('/categories/delete/{id}',[CategoriesController::class,'delete'])->name('categories.delete');
+Route::get('/categories/cetak',[CategoriesController::class, 'cetak'])->name('categories.cetak');
 
